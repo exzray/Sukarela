@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Sukarela</string>
+    <string name="text_selamat_datang">Aplikasi Sukarela Malaysia</string>
+    <string name="text_punchline">Today help, for better tomorrow</string>
+    <string name="text_version">version 1.0</string>
+
+    <string name="title_home">Home</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_join">Join</string>
+
+    <string name="format_description">%1$s\t %2$s</string>
+    <string name="format_info">%1$d %2$s</string>
+    <string name="format_limit">Limit %1$d / %2$d</string>
+
+    <string name="description_signin">Please put your mobile number. If this first login, swipe left to register new account.</string>
+    <string name="description_signup">Follow our simple step to register a account. Wait for confirmation number to complete registration.</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_age">Age</string>
+    <string name="hint_contact">Contact</string>
+    <string name="text_update">Kemaskini</string>
+    <string name="hint_username">Enter your name</string>
+    <string name="hint_f_contact">Enter your contact</string>
+    <string name="text_submit">submit</string>
+    <string name="float_name">name</string>
+    <string name="float_contact">contact</string>
+    <string name="text_join">join</string>
+    <string name="title_login">login</string>
+    <string name="title_notification">notify me</string>
+    <string name="title_logout">logout</string>
+    <string name="text_full">Penuh</string>
+    <string name="text_birthdate">Birthday</string>
+</resources>

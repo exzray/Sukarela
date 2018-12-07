@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragments.EventTaskFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="4dp"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/eventtask_people"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableBottom="@drawable/ic_people_outline_white_24dp"
+            android:drawablePadding="2dp"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/eventtask_task"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableBottom="@drawable/ic_assignment_white_24dp"
+            android:drawablePadding="2dp"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+    <include layout="@layout/my_divider" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/eventtask_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>

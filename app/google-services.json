@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "227405669662",
+    "firebase_url": "https://sukarela-751e7.firebaseio.com",
+    "project_id": "sukarela-751e7",
+    "storage_bucket": "sukarela-751e7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:227405669662:android:744b06f06e7c741c",
+        "android_client_info": {
+          "package_name": "com.developer.athirah.sukarela"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "227405669662-t2tv9c1ngjeoapcpq1rt3vuih6e24mjs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.developer.athirah.sukarela",
+            "certificate_hash": "6fb20c822d8258e130a3c06bd1fd7ce0deebaf12"
+          }
+        },
+        {
+          "client_id": "227405669662-2747dgfbtpegognoumorf4ljtebddvih.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqHDcauOrnfdWjWb64MKOl3tK0GEi7vXc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "227405669662-2747dgfbtpegognoumorf4ljtebddvih.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

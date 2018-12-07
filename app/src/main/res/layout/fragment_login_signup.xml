@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="40dp"
+    tools:context=".fragments.LoginSignupFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/description_signup" />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/signup_field_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:hint="@string/hint_username"
+        android:inputType="textPersonName"
+        app:met_floatingLabel="highlight"
+        app:met_floatingLabelText="@string/float_name" />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/signup_field_contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:hint="@string/hint_f_contact"
+        android:inputType="phone"
+        android:text="+60 12-345 6789"
+        app:met_floatingLabel="highlight"
+        app:met_floatingLabelText="@string/float_contact" />
+
+    <Button
+        android:id="@+id/signup_button_submit"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/button_submit"
+        android:text="@string/text_submit"
+        android:textColor="@color/white" />
+
+</LinearLayout>
