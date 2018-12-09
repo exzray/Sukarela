@@ -20,9 +20,6 @@ public class EventActivity extends AppCompatActivity {
     private TabLayout tab;
     private ViewPager pager;
 
-    // firebase
-    FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

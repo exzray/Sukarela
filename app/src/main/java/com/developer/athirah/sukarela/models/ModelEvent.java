@@ -1,9 +1,12 @@
 package com.developer.athirah.sukarela.models;
 
+import android.util.Log;
+
 import com.developer.athirah.sukarela.utilities.UserHelper;
 import com.google.firebase.firestore.Exclude;
 import com.google.firebase.firestore.GeoPoint;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -150,13 +153,20 @@ public class ModelEvent {
     public Status getStatus() {
         // get date time
         Calendar now = Calendar.getInstance(); // current time
+
         Calendar event = Calendar.getInstance(); // event time
         event.setTime(date);
         event.add(Calendar.DAY_OF_MONTH, 1);
 
+        Log.i("mymessage", "event: " + DateFormat.getDateInstance().format(event.getTime()));
+        Log.i("mymessage", "now: " + DateFormat.getDateInstance().format(now.getTime()));
+
+
         if (now.after(event)) {
             status = Status.Complete;
         }
+
+        Log.i("mymessage", "status: " + now.after(event));
 
         if (status == null) status = Status.Ongoing;
 

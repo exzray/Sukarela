@@ -1,18 +1,23 @@
 package com.developer.athirah.sukarela.fragments;
 
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.developer.athirah.sukarela.LoginActivity;
@@ -21,6 +26,7 @@ import com.developer.athirah.sukarela.adapters.FragmentEventAdapter;
 import com.developer.athirah.sukarela.adapters.RecyclerTaskAdapter;
 import com.developer.athirah.sukarela.models.ModelEvent;
 import com.developer.athirah.sukarela.models.ModelUser;
+import com.developer.athirah.sukarela.utilities.NotificationReceiver;
 import com.developer.athirah.sukarela.utilities.UserHelper;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -31,6 +37,7 @@ import com.google.firebase.firestore.ListenerRegistration;
 import com.google.firebase.firestore.Transaction;
 
 import java.text.DateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -179,6 +186,24 @@ public class EventDetailFragment extends Fragment implements EventListener<Docum
                     if (user != null){
                         list.add(user.getUid());
                         transaction.set(reference, event);
+
+                        if (getContext() != null ){
+                            Calendar date1 = Calendar.getInstance();
+                            date1.setTime(event.getDate());
+                            date1.add(Calendar.DAY_OF_MONTH, -2);
+
+                            Log.i("sakai", "apply: " + DateFormat.getDateInstance().format(date1.getTime()));
+
+                            AlarmManager manager = (AlarmManager) getContext().getSystemService(Context.ALARM_SERVICE);
+
+                            // a week
+                            Intent intent = new Intent(getContext(), NotificationReceiver.class);
+                            intent.putExtra(NotificationReceiver.CHANNEL, event.getUid() + "1"); // will be replace with event id
+                            intent.putExtra(NotificationReceiver.TITLE, event.getTitle());
+                            intent.putExtra(NotificationReceiver.CONTENT, "Aktiviti yang disertai pada minggu ini bermula!");
+                            PendingIntent pendingIntent = PendingIntent.getBroadcast(getContext(), 1, intent, 0);
+                            manager.setExact(AlarmManager.RTC_WAKEUP, date1.getTimeInMillis(), pendingIntent);
+                        }
                     }
                 }
 
