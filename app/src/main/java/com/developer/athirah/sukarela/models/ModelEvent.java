@@ -82,6 +82,18 @@ public class ModelEvent {
     }
 
     @Exclude
+    public String maskStatus(){
+
+        HashMap<Status, String> mask = new HashMap<>();
+        mask.put(Status.Cancel, "Dibatalkan");
+        mask.put(Status.Complete, "Selesai");
+        mask.put(Status.Ongoing, "Akan Datang");
+        mask.put(Status.Open, "Terbukan");
+
+        return mask.get(status);
+    }
+
+    @Exclude
     public boolean isTaskFull(ModelTask task) {
         return getTotalJoinTask(task) == task.getLimit();
     }

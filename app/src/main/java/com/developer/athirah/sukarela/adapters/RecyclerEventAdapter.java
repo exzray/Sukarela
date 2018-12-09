@@ -46,7 +46,7 @@ public class RecyclerEventAdapter extends RecyclerView.Adapter<RecyclerEventAdap
         // bind data into view
         Glide.with(context).load(event.getImage()).into(vh.image);
 
-        vh.status.setText(event.getStatus().name());
+        vh.status.setText(event.maskStatus());
         vh.title.setText(event.getTitle());
         vh.location.setText(event.getLocation());
         vh.date.setText(DateFormat.getDateInstance(DateFormat.LONG).format(event.getDate()));
