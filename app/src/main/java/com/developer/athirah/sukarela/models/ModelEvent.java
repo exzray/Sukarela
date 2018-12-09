@@ -161,7 +161,6 @@ public class ModelEvent {
         Log.i("mymessage", "event: " + DateFormat.getDateInstance().format(event.getTime()));
         Log.i("mymessage", "now: " + DateFormat.getDateInstance().format(now.getTime()));
 
-
         if (now.after(event)) {
             status = Status.Complete;
         }

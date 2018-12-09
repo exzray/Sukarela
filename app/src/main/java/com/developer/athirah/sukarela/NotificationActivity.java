@@ -19,38 +19,19 @@ import java.util.Calendar;
 
 public class NotificationActivity extends AppCompatActivity implements View.OnClickListener, android.app.TimePickerDialog.OnTimeSetListener {
 
-    // declare view
-    private TextView text;
-    private Button set, cancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
 
-        // init view
-        text = findViewById(R.id.notification_text);
-        set = findViewById(R.id.notification_set);
-        cancel = findViewById(R.id.notification_cancel);
 
-        initUI();
+//        initUI();
     }
 
     @Override
     public void onClick(View v) {
 
-        if (v.equals(set)) {
-
-            // button set
-            TimeDialog dialog = new TimeDialog();
-            dialog.show(getSupportFragmentManager(), "time picker");
-
-        } else {
-
-            // button cancel
-            cancelAlarm();
-
-        }
     }
 
     @Override
@@ -60,22 +41,22 @@ public class NotificationActivity extends AppCompatActivity implements View.OnCl
         calendar.set(Calendar.MINUTE, minute);
         calendar.set(Calendar.SECOND, 0);
 
-        updateText(calendar);
+//        updateText(calendar);
         startAlarm(calendar);
     }
 
-    private void initUI() {
-        // setup button
-        set.setOnClickListener(this);
-        cancel.setOnClickListener(this);
-    }
-
-    private void updateText(Calendar calendar) {
-        String str_time = "Set time: ";
-        str_time += DateFormat.getTimeInstance(DateFormat.SHORT).format(calendar.getTime());
-
-        text.setText(str_time);
-    }
+//    private void initUI() {
+//        // setup button
+//        set.setOnClickListener(this);
+//        cancel.setOnClickListener(this);
+//    }
+//
+//    private void updateText(Calendar calendar) {
+//        String str_time = "Set time: ";
+//        str_time += DateFormat.getTimeInstance(DateFormat.SHORT).format(calendar.getTime());
+//
+//        text.setText(str_time);
+//    }
 
     private void startAlarm(Calendar calendar) {
         AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
@@ -90,13 +71,13 @@ public class NotificationActivity extends AppCompatActivity implements View.OnCl
         manager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
     }
 
-    private void cancelAlarm() {
-        AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-
-        Intent intent = new Intent(this, NotificationReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 1, intent, 0);
-
-        manager.cancel(pendingIntent);
-        text.setText("cancel");
-    }
+//    private void cancelAlarm() {
+//        AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+//
+//        Intent intent = new Intent(this, NotificationReceiver.class);
+//        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 1, intent, 0);
+//
+//        manager.cancel(pendingIntent);
+//        text.setText("cancel");
+//    }
 }
