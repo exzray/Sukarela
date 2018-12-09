@@ -2,6 +2,7 @@ package com.developer.athirah.sukarela.fragments;
 
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -40,7 +41,7 @@ public class EventDetailFragment extends Fragment implements EventListener<Docum
     // declare view
     private ImageView image;
     private TextView title, location, date, time, description;
-    private Button join;
+    private Button join, map;
 
     // firebase
     private FirebaseFirestore firestore = FirebaseFirestore.getInstance();
@@ -70,6 +71,7 @@ public class EventDetailFragment extends Fragment implements EventListener<Docum
         time = view.findViewById(R.id.eventdetail_time);
         description = view.findViewById(R.id.eventdetail_description);
         join = view.findViewById(R.id.eventdetail_join);
+        map = view.findViewById(R.id.eventdetail_map);
 
         // get pass arg contain event uid
         if (getArguments() != null) {
@@ -119,6 +121,17 @@ public class EventDetailFragment extends Fragment implements EventListener<Docum
                             } else {
                                 joinEvent(event.getUid());
                             }
+                        }
+                    });
+
+                    // setup button
+                    map.setOnClickListener(new View.OnClickListener() {
+
+                        @Override
+                        public void onClick(View v) {
+                            String uri = "http://maps.google.com/maps?daddr=" + event.getPoint().getLatitude() + "," + event.getPoint().getLongitude();
+                            Intent intent= new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                            startActivity(intent);
                         }
                     });
                 }

@@ -12,7 +12,7 @@
         app:showAsAction="never"/>
 
     <item
-        android:id="@+id/menumain_contact"
+        android:id="@+id/menumain_phone"
         android:title="@string/float_contact"
         app:showAsAction="never"/>
 </menu>

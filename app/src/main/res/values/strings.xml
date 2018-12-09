@@ -31,4 +31,7 @@
     <string name="title_logout">logout</string>
     <string name="text_full">Penuh</string>
     <string name="text_birthdate">Birthday</string>
+    <string name="text_call">Hubungi kami</string>
+    <string name="text_whatsapp">Melalui Whatsapp</string>
+    <string name="text_map">See on the map</string>
 </resources>

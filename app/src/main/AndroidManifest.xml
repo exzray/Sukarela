@@ -33,9 +33,11 @@
         </activity>
         <activity
             android:name=".NotificationActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
 
-        <receiver android:name=".utilities.NotificationReceiver"/>
+        <receiver android:name=".utilities.NotificationReceiver" />
+
+        <activity android:name=".ContactActivity"></activity>
     </application>
 
 </manifest>

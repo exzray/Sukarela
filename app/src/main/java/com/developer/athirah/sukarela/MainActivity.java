@@ -118,6 +118,13 @@ public class MainActivity extends AppCompatActivity implements AHBottomNavigatio
                 finish();
 
                 break;
+
+            case R.id.menumain_phone:
+
+                Intent intent = new Intent(this, ContactActivity.class);
+                startActivity(intent);
+
+                break;
         }
 
 
