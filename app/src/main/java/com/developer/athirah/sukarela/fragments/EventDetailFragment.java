@@ -200,7 +200,7 @@ public class EventDetailFragment extends Fragment implements EventListener<Docum
                             Intent intent = new Intent(getContext(), NotificationReceiver.class);
                             intent.putExtra(NotificationReceiver.CHANNEL, event.getUid() + "1"); // will be replace with event id
                             intent.putExtra(NotificationReceiver.TITLE, event.getTitle());
-                            intent.putExtra(NotificationReceiver.CONTENT, "Aktiviti yang disertai pada minggu ini bermula!");
+                            intent.putExtra(NotificationReceiver.CONTENT, "Aktiviti yang disertai bermula esok!");
                             PendingIntent pendingIntent = PendingIntent.getBroadcast(getContext(), 1, intent, 0);
                             manager.setExact(AlarmManager.RTC_WAKEUP, date1.getTimeInMillis(), pendingIntent);
                         }
