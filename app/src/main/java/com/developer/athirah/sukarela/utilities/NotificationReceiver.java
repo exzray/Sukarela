@@ -26,7 +26,7 @@ public class NotificationReceiver extends BroadcastReceiver {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, intent.getStringExtra(CHANNEL))
                 .setSmallIcon(R.drawable.ic_place_deep_orange_600_18dp)
                 .setContentTitle(intent.getStringExtra(TITLE))
-                .setContentText(intent.getStringExtra(CONTENT) + DateFormat.getTimeInstance().format(new Date( )))
+                .setContentText(intent.getStringExtra(CONTENT))
                 .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
                 .setPriority(NotificationCompat.PRIORITY_HIGH);
 

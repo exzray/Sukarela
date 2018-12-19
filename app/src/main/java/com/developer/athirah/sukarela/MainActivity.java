@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements AHBottomNavigatio
         initUI();
 
         // start listener to events collection
-        listener = colRef.addSnapshotListener(this);
+        listener = colRef.orderBy("date").addSnapshotListener(this);
     }
 
     @Override
