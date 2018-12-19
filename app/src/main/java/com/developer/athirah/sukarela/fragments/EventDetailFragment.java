@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.developer.athirah.sukarela.EventActivity;
 import com.developer.athirah.sukarela.LoginActivity;
 import com.developer.athirah.sukarela.R;
 import com.developer.athirah.sukarela.adapters.FragmentEventAdapter;
@@ -109,7 +110,12 @@ public class EventDetailFragment extends Fragment implements EventListener<Docum
                     updateFragment(event);
                     RecyclerTaskAdapter.ADAPTER.receiveEventUpdate(event);
 
-                    if (event.isJoinEvent()) join.setVisibility(View.GONE);
+                    if (event.isJoinEvent()) {
+                        join.setVisibility(View.GONE);
+                        EventActivity eventActivity = (EventActivity) getActivity();
+
+                        if (eventActivity != null) eventActivity.goToTask();
+                    }
                     else join.setVisibility(View.VISIBLE);
 
 

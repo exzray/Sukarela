@@ -53,4 +53,8 @@ public class EventActivity extends AppCompatActivity {
         // setup tab
         tab.setupWithViewPager(pager);
     }
+
+    public void goToTask(){
+        pager.setCurrentItem(1);
+    }
 }
