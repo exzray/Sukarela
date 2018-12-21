@@ -35,6 +35,7 @@ public class RecyclerJoinAdapter extends RecyclerView.Adapter<RecyclerJoinAdapte
 
     // declare static component
     public static final RecyclerJoinAdapter ADAPTER = new RecyclerJoinAdapter();
+    public static final List<ModelEvent> ALL = new ArrayList<>();
 
     // declare component
     private List<ModelEvent> list = new ArrayList<>();
@@ -87,17 +88,17 @@ public class RecyclerJoinAdapter extends RecyclerView.Adapter<RecyclerJoinAdapte
         update();
     }
 
-    public void update(){
+    public void update() {
         list.clear();
 
         if (!filter) {
-            for (ModelEvent event : RecyclerEventAdapter.LIST) {
+            for (ModelEvent event : ALL) {
 
                 if (event.getStatus().equals(ModelEvent.Status.Ongoing) && event.isJoinEvent())
                     list.add(event);
             }
         } else {
-            for (ModelEvent event : RecyclerEventAdapter.LIST) {
+            for (ModelEvent event : ALL) {
 
                 if (event.getStatus().equals(ModelEvent.Status.Complete) && event.isJoinEvent())
                     list.add(event);
@@ -135,7 +136,7 @@ public class RecyclerJoinAdapter extends RecyclerView.Adapter<RecyclerJoinAdapte
             cancel = itemView.findViewById(R.id.cardevent_cancel);
         }
 
-        private void setEvent(final Context context, final String uid){
+        private void setEvent(final Context context, final String uid) {
 
             detail.setOnClickListener(new View.OnClickListener() {
 
@@ -166,17 +167,17 @@ public class RecyclerJoinAdapter extends RecyclerView.Adapter<RecyclerJoinAdapte
                             // convert to model object
                             ModelEvent event = snapshot.toObject(ModelEvent.class);
 
-                            if (event != null){
+                            if (event != null) {
 
                                 List<String> list = event.getPeople();
                                 Map<String, List<String>> map = event.getTask();
 
-                                if (user != null){
+                                if (user != null) {
                                     list.remove(user.getUid());
 
-                                    if (map != null){
+                                    if (map != null) {
 
-                                        for (String key : map.keySet()){
+                                        for (String key : map.keySet()) {
                                             List<String> task_list = map.get(key);
 
                                             if (task_list != null) task_list.remove(user.getUid());

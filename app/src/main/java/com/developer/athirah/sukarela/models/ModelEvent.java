@@ -151,23 +151,11 @@ public class ModelEvent {
     }
 
     public Status getStatus() {
-        // get date time
-        Calendar now = Calendar.getInstance(); // current time
+        Calendar now = Calendar.getInstance();
+        Calendar future = Calendar.getInstance();
+        future.setTime(date);
 
-        Calendar event = Calendar.getInstance(); // event time
-        event.setTime(date);
-        event.add(Calendar.DAY_OF_MONTH, 1);
-
-        Log.i("mymessage", "event: " + DateFormat.getDateInstance().format(event.getTime()));
-        Log.i("mymessage", "now: " + DateFormat.getDateInstance().format(now.getTime()));
-
-        if (now.after(event)) {
-            status = Status.Complete;
-        }
-
-        Log.i("mymessage", "status: " + now.after(event));
-
-        if (status == null) status = Status.Ongoing;
+        if (future.before(now)) status = Status.Complete;
 
         return status;
     }

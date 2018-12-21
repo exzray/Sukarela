@@ -2,13 +2,12 @@ package com.developer.athirah.sukarela;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationAdapter;
@@ -76,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements AHBottomNavigatio
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        if (UserHelper.getInstance().get() == null){
+        if (UserHelper.getInstance().get() == null) {
             navigation.setVisibility(View.INVISIBLE);
             getMenuInflater().inflate(R.menu.menu_main_1, menu);
         } else {
@@ -90,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements AHBottomNavigatio
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.menumain_login:
 
                 Intent loginIntent = new Intent(this, LoginActivity.class);
@@ -155,7 +154,7 @@ public class MainActivity extends AppCompatActivity implements AHBottomNavigatio
 
     }
 
-    private void initUI(){
+    private void initUI() {
         // setup navigation
         navigation.setAccentColor(Color.parseColor("#009688"));
         navigation.setOnTabSelectedListener(this);
@@ -174,14 +173,19 @@ public class MainActivity extends AppCompatActivity implements AHBottomNavigatio
 
             // this is important, clear previous data after new update
             RecyclerEventAdapter.LIST.clear();
+            RecyclerJoinAdapter.ALL.clear();
 
             for (DocumentSnapshot snapshot : queryDocumentSnapshots.getDocuments()) {
                 // convert snapshot into ModelEvent object
                 ModelEvent event = snapshot.toObject(ModelEvent.class);
 
-                if (event != null){
+                if (event != null) {
                     event.setUid(snapshot.getId());
-                    RecyclerEventAdapter.LIST.add(event);
+
+                    if (event.getStatus().equals(ModelEvent.Status.Ongoing) && !event.isJoinEvent())
+                        RecyclerEventAdapter.LIST.add(event);
+
+                    RecyclerJoinAdapter.ALL.add(event);
                 }
             }
 
